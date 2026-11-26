@@ -1,0 +1,17 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+from google.colab import files
+
+uploaded = files.upload()
+filename = next(iter(uploaded))
+
+img = cv2.imread(filename)
+
+if img is None:
+    raise ValueError("Image not found")
+
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.title("Original Image")
+plt.axis("off")
+plt.show()
